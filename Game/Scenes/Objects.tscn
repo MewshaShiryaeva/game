@@ -7,14 +7,12 @@ position = Vector2( 368, 536 )
 
 [node name="Floor" type="Sprite" parent="."]
 position = Vector2( -336, -504 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 
 [node name="Wall" type="Sprite" parent="."]
 position = Vector2( -208, -504 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 256, 320, 64, 64 )
