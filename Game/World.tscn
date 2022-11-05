@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tiles/TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 32 )
+format = 1
+tile_data = PoolIntArray( -131054, 1, 0, 17, 1, 0, 131094, 1, 0, 196625, 1, 0, 393242, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655387, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0 )
+
+[node name="TileMapSecond" type="TileMap" parent="."]
+mode = 1
+cell_size = Vector2( 64, 32 )
+format = 1
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136, 288 )
