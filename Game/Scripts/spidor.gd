@@ -5,6 +5,9 @@ var speed = 45
 var velocity = Vector2()
 var destination = Vector2()
 
+func _ready():
+	pass
+	
 func select_animation():
 	if abs(velocity.x) > abs(velocity.y):
 		if velocity.x < 0:

@@ -1,8 +1,12 @@
 extends Node
 
+var Mob = preload("res://Scenes/EntitiesScene/spidor.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var mob = get_node("res://Scenes/spidor.tscn")
-	add_child(mob)
+	for i in range(0 ,10):
+		var mob = Mob.instance()
+		mob.position.x = 500
+		mob.position.y = 500
+		add_child(mob)
+	
