@@ -1,60 +1,109 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Sprites/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/up.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/left.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/down.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/right.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/walkUp.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/walkDown2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/walkUp2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/walkRight.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/walkDown.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/walkRight2.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/walkLeft.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/walkLeft2.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/betty.png" type="Texture" id=2]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 144, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 144, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 144, 96, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 144, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 96, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ SubResource( 4 ), SubResource( 3 ), SubResource( 6 ), SubResource( 5 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ SubResource( 8 ), SubResource( 7 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "left",
-"speed": 5.0
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ SubResource( 12 ), SubResource( 11 ), SubResource( 14 ), SubResource( 13 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 10.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ SubResource( 16 ), SubResource( 15 ), SubResource( 18 ), SubResource( 17 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walkDown",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "walkLeft",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walkRight",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walkUp",
-"speed": 4.0
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -73,8 +122,8 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "walkLeft"
+frames = SubResource( 19 )
+animation = "New Anim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
