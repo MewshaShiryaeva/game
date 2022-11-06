@@ -20,7 +20,6 @@ func select_animation():
 		else:
 			$AnimatedSprite.play("down")
 
-
 func _process(delta):
 	if velocity:
 		select_animation()
@@ -31,7 +30,6 @@ func get_destination(dest):
 	destination = dest
 	velocity = (destination - position).normalized() * speed
 	staying = false
-
 
 func generate_destination():	
 	if staying:
