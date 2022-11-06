@@ -11,14 +11,17 @@ func _ready():
 	$AnimatedSprite.play("up")
 	$AnimatedSprite.set_frame(1)
 
+
 func return_position():
 	return position
-	
+
+
 func _process(delta):
 	isWalk = false
 	if Input.is_action_pressed("right_click"):
 		target = get_global_mouse_position()
 		isWalk = true
+
 
 func _physics_process(delta):
 	if isWalk:
@@ -29,7 +32,8 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.stop()
 		$AnimatedSprite.set_frame(1)
-			 
+		
+	
 func select_animation():
 	if abs(velocity.x) > abs(velocity.y):
 		if velocity.x < 0:
@@ -41,5 +45,3 @@ func select_animation():
 			$AnimatedSprite.play("up")
 		else:
 			$AnimatedSprite.play("down")
-			
-			
