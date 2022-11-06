@@ -16,16 +16,16 @@ func get_destination(dest):
 	velocity = (destination - position).normalized() * speed
 	staying = false
 
-func generate_destination():
-	var start_pos = position	
+
+func generate_destination():	
 	if staying:
 		randomize()
-		var x = rand_range(start_pos.x - 150, start_pos.x + 150)
-		var y = rand_range(start_pos.y - 150, start_pos.y + 150)
+		var x = rand_range(position.x - 150, position.x + 150)
+		var y = rand_range(position.y - 150, position.y + 150)
 		
 		get_destination(Vector2(x, y))
 	elif velocity != Vector2():
-		if start_pos.distance_to(destination) <= speed:
+		if position.distance_to(destination) <= speed:
 			cancel_moving()
 
 func cancel_moving():
