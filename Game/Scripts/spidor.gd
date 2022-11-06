@@ -17,6 +17,7 @@ func select_animation():
 		else:
 			$AnimatedSprite.play("down")
 
+
 func _process(delta):
 	if velocity:
 		select_animation()
