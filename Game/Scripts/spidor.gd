@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 
-
+var player_is_attacked = false
 var staying = true
 var speed = 45
-var range_atack = 25
+var range_atack = 40
 var velocity = Vector2()
 var destination = Vector2()
 var prev_pos = Vector2()
@@ -49,15 +49,26 @@ func generate_destination():
 		
 		get_destination(Vector2(x, y))
 	elif velocity != Vector2():
-		if position.distance_to(destination) <= speed:
-			cancel_moving()
-		elif prev_pos.distance_to(position) <= 0.6:
-			cancel_moving()
+		if not player_is_attacked:
+			if position.distance_to(destination) <= speed:
+				cancel_moving()
+			elif prev_pos.distance_to(position) <= 0.6:
+				cancel_moving()
+
 
 func search_player():
 	var pl_pos = Vector2(global.player_pos.x, global.player_pos.y)
 	if pl_pos.distance_to(position) <= 200:
 		get_destination(pl_pos)
+		
+	if pl_pos.distance_to(position) <= range_atack:
+		velocity = Vector2()
+		destination = Vector2()
+		$AnimatedSprite.play("atack_" + $AnimatedSprite.animation)
+		player_is_attacked = true
+	else:
+		player_is_attacked = false
+	
 		
 func cancel_moving():
 	$AnimatedSprite.stop()
