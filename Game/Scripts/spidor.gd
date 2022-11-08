@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 var staying = true
 var speed = 45
+var range_atack = 25
 var velocity = Vector2()
 var destination = Vector2()
 var prev_pos = Vector2()
@@ -53,18 +54,17 @@ func generate_destination():
 		elif prev_pos.distance_to(position) <= 0.6:
 			cancel_moving()
 
-
 func search_player():
 	var pl_pos = Vector2(global.player_pos.x, global.player_pos.y)
 	if pl_pos.distance_to(position) <= 200:
 		get_destination(pl_pos)
-
+		
 func cancel_moving():
 	$AnimatedSprite.stop()
 	$AnimatedSprite.set_frame(0)
 	velocity = Vector2()
 	destination = Vector2()
-	$NotMovTimer.start(3)
+	$NotMovTimer.start(2)
 
 
 func _on_NotMovTimer_timeout():
