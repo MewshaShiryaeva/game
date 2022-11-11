@@ -1,9 +1,6 @@
-extends "res://Scripts/spidor.gd"
+extends "res://Scripts/default_player.gd"
 
 
-
-func _ready():
-	pass # Replace with function body.
-
-
-# 
+func _init():
+	speed = 150
+	health = 35
