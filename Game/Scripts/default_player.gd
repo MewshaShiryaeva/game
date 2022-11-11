@@ -1,20 +1,24 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+var speed = 200
+var health = 20
 
 onready var target = position
 var velocity = Vector2()
 var isWalk: bool
 
 
+
 func _ready():
 	$AnimatedSprite.play("up")
 	$AnimatedSprite.set_frame(1)
 	
-	
+	global.max_player_health = health
+	global.player_health = health
 	
 func _process(delta):
 	global.player_pos = position
+	
 	isWalk = false
 	if Input.is_action_pressed("right_click"):
 		target = get_global_mouse_position()
@@ -38,7 +42,7 @@ func select_animation():
 		if velocity.x < 0:
 			$AnimatedSprite.play("left")
 		else:
-			$AnimatedSprite.play("right")
+			$AnimatedSprite.flip_h = true
 	elif abs(velocity.x) < abs(velocity.y):
 		if velocity.y < 0:
 			$AnimatedSprite.play("up")
